@@ -7,41 +7,41 @@ public class Lab1 {
 
         Scanner reader = new Scanner(System.in);
 
-        System.out.println("Enter x1 coordinate (optionally):");
+        System.out.println("Enter x1 coordinate:");
         string = reader.nextLine();
-        Double x1 = inputValue(string);
+        double x1 = Double.parseDouble(string);
 
-        System.out.println("Enter y1 coordinate (optionally):");
+        System.out.println("Enter y1 coordinate:");
         string = reader.nextLine();
-        Double y1 = inputValue(string);
+        double y1 = Double.parseDouble(string);
 
-        System.out.println("Enter z1 coordinate (optionally):");
+        System.out.println("Enter z1 coordinate:");
         string = reader.nextLine();
-        Double z1 = inputValue(string);
+        double z1 = Double.parseDouble(string);
 
-        System.out.println("Enter x2 coordinate (optionally):");
+        System.out.println("Enter x2 coordinate:");
         string = reader.nextLine();
-        Double x2 = inputValue(string);
+        double x2 = Double.parseDouble(string);
 
-        System.out.println("Enter y2 coordinate (optionally):");
+        System.out.println("Enter y2 coordinate:");
         string = reader.nextLine();
-        Double y2 = inputValue(string);
+        double y2 = Double.parseDouble(string);
 
-        System.out.println("Enter z2 coordinate (optionally):");
+        System.out.println("Enter z2 coordinate:");
         string = reader.nextLine();
-        Double z2 = inputValue(string);
+        double z2 = Double.parseDouble(string);
 
-        System.out.println("Enter x3 coordinate (optionally):");
+        System.out.println("Enter x3 coordinate:");
         string = reader.nextLine();
-        Double x3 = inputValue(string);
+        double x3 = Double.parseDouble(string);
 
-        System.out.println("Enter y3 coordinate (optionally):");
+        System.out.println("Enter y3 coordinate:");
         string = reader.nextLine();
-        Double y3 = inputValue(string);
+        double y3 = Double.parseDouble(string);
 
-        System.out.println("Enter z3 coordinate (optionally):");
+        System.out.println("Enter z3 coordinate:");
         string = reader.nextLine();
-        Double z3 = inputValue(string);
+        double z3 = Double.parseDouble(string);
 
         reader.close();
 
@@ -49,7 +49,7 @@ public class Lab1 {
         Point3d point2 = new Point3d(x2, y2, z2);
         Point3d point3 = new Point3d(x3, y3, z3);
 
-        if (point1.isEqual(point2) == false && point2.isEqual(point3) == false && point3.isEqual(point1) == false) {
+        if (!point1.isEqual3D(point2) && !point2.isEqual3D(point3) && !point3.isEqual3D(point1)) {
             System.out.println("Площадь треугольника на основе введенных точек: " + computeArea(point1, point2, point3));
         } else {
             System.out.println("Ошибка! Две или три точки треугольника имеют одинаковые координаты");
@@ -58,13 +58,6 @@ public class Lab1 {
 
     }
 
-    public static Double inputValue (String string) {
-        if (string.isEmpty()) {
-            return null;
-        } else {
-            return Double.parseDouble(string);
-        }
-    }
     public static Double computeArea(Point3d object1, Point3d object2, Point3d object3) {
         double a = object1.distanceTo(object2);
         double b = object2.distanceTo(object3);

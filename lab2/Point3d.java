@@ -1,57 +1,31 @@
-public class Point3d {
+public class Point3d extends Point2d{
 
-    private Double x;
-    private Double y;
-    private Double z;
-    public Point3d (Double x, Double y, Double z) {
-        if (x != null) {
-            this.x = x;
-        } else {
-            this.x = 0.0;
-        }
-        if (y != null) {
-            this.y = y;
-        } else {
-            this.y = 0.0;
-        }
-        if (z != null) {
-            this.z = z;
-        } else {
-            this.z = 0.0;
-        }
+    protected double zCoord;
+
+    public Point3d(double x, double y, double z) {
+        this.xCoord = x;
+        this.yCoord = y;
+        this.zCoord = z;
     }
 
-    public void getX () {
-        System.out.println("x = " + this.x);
-    }
-    public void getY () {
-        System.out.println("y = " + this.y);
-    }
-    public void getZ () {
-        System.out.println("z = " + this.z);
+    public Point3d () {
+        this (0, 0, 0);
     }
 
-    public void modify (Double x, Double y, Double z) {
-        if (x != null) {
-            this.x = x;
-        }
-        if (y != null) {
-            this.y = y;
-        }
-        if (z != null) {
-            this.z = z;
-        }
+    public double getZ () {
+        return zCoord;
     }
-    public boolean isEqual (Point3d object) {
-        if (this.x.equals(object.x) && this.y.equals(object.y) && this.z.equals(object.z)) {
-            return true;
-        } else {
-            return false;
-        }
+
+    public void setZ (double val) {
+        zCoord = val;
+    }
+
+    public boolean isEqual3D (Point3d object) {
+        return this.xCoord == object.xCoord && this.yCoord == object.yCoord && this.zCoord == object.zCoord;
 
     }
-    public Double distanceTo (Point3d object) {
-        return Math.floor(Math.sqrt(Math.pow(object.x - this.x, 2) + Math.pow(object.y - this.y, 2) + Math.pow(object.z - this.z, 2)) * 100)/100;
+    public double distanceTo (Point3d object) {
+        return Math.floor(Math.sqrt(Math.pow(object.xCoord - this.xCoord, 2) + Math.pow(object.yCoord - this.yCoord, 2) + Math.pow(object.zCoord - this.zCoord, 2)) * 100)/100;
     }
 }
 
