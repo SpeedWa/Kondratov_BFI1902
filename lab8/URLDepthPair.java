@@ -1,4 +1,4 @@
-package lab9;
+package lab8;
 
 public class URLDepthPair {
     public static final String URL_PREFIX = "http://";

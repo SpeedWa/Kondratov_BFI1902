@@ -1,4 +1,4 @@
-package lab9;
+package lab8;
 
 public class Crawler {
     public int maxDepth;
